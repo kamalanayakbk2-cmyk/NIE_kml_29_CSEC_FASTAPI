@@ -1,0 +1,145 @@
+DAY1
+Fast API Based Application Working
+
+Fronted -> Backend -> Database
+(React)   (FastAPI)  (Mongo DB)
+JS        PYTHON      BSON doc =JSON +LOB
+
+UI Logic Business Logic -persistent store(to store permanently)
+
+There are two databases sources:-
+ 1.SQL -(RDBMS- RELATION DATA BASES)
+      *database -table row
+      *nested data will be in many table using the relationship for sigh key
+
+ 2.NO SQL - no only SQL -Mongo DB
+      *database - collection of documents
+      *document-hiararchial is nested.
+
+Installed Mongo DB Server = CE
+     - setup Mongo shell to work with mongo server
+
+What is Mongo shell?
+   client tool is CLI to  connect and work with mongo DB
+
+to list databases:
+1 show dbs
+2 show databases
+
+To create databases if does not exist
+To select databases if exist
+# use student_app_db
+
+TO ADD THE 'STUDENT'document to students collection:
+$ db.students.insertOne({name:"kamala",age:19,course:"CSE",year:4})
+
+To List Student document:
+$use db.students.find()
+$ db.students.insertOne({name:"sanju",age:19,course:"ISE",year:4})
+$ db.students.find()
+$ db.students.insertMany([
+{name:"sanjeev",age:19,course:"CSE",year:4},
+{name:"kunal",age:19,course:"CSE",year:4}
+])
+
+$ db.students.find()
+
+To query document by id:
+$db.students.findOne({_id:ObjectId('6ab0df2058c7f87e0b275e0a')})
+To filter / query by name:
+$ db.students.findOne({name:"Anvesh"})
+
+To filter by course:
+$ db.students.find({course:"CSE"})
+
+To filter by course:
+$ db.students.find({course:"ISE"})
+
+db.students.updateOne({name:"kunal"},{$set:{age:21}})
+
+To delete Mahesh after adding to students collection:
+db.students.insertOne({name:"Mahesh", age:
+ 34,course:"CSE",year:4})
+db.students.find()
+db.students.deleteOne({name:"Mahesh"})
+
+To list the collections:
+$ show collections
+
+---
+Session 3:
+    Setup the mongo sever ,mongo shell.
+    Experimented CRUD ops with mongo db on students data.
+
+    tickets: title, description, category,status, assigned_to,resolved_by
+    employee Janki raising the complaint to the service team 'My laptop is not om'.
+    Team leader Khushi assign the ticket raised by Janaki support Engineer ganavi.
+    Admin will create Janaki,khushi,and ganavi user.
+
+1.Create mongo database 'it_service_desk_db'
+use it_sevice_desk_db
+
+2.Add four users admin Janaki,khushi,and Ganavi
+db.user.insertMany([
+   {name:"Admin",password:"admin123",role:"admin"},
+    {name:"Janaki",password:"Janaki123",role:"employee"},
+    {name:"khushi",password:"khushi123",role:"team_lead"},
+     {name:"Ganavi",password:"Ganavi123",role:"support_eng"},
+])
+db.users.find()  
+
+3.Janaki will create the ticket
+db.tickets.insertOne({title:'Laptop is not on',description:'this power button is not working',category:'hardware',status:'new'})
+
+4.khushi assign the ticket to Ganavi
+db.tickets.updateOne({_id:objectId("???")},{$set:{status:"ASSIGNED"}})
+db.tickets.find()
+
+5.Ganavi will update the issue resolution status
+db.tickets.updateOne({_id:objectId("???")},{$set:{status:"RESOLVED"}})
+db.tickets.find()
+
+----
+
+
+ 
+********our project********
+Hospital Support Request System
+use hospital_support_db
+
+db.users.insertMany([
+  {name: "Admin",password: "admin123",role: "admin"},
+  {name: "Anitha",password: "Anitha123",role: "department_staff",department: "Nursing"},
+  {name: "Khushi",password: "Khushi123",role: "team_lead"},
+  {name: "Ganavi",password: "Ganavi123",role: "support_engineer"}
+])
+
+db.users.find()
+
+db.service_requests.insertOne({
+  title: "ECG machine not working",
+  description: "ECG machine in the nursing department is not powering on",
+  category: "EQUIPMENT_ISSUE",
+  status: "NEW",
+  created_by: "Anitha",
+  assigned_to: null,
+  resolved_by: null
+})
+db.service_requests.find()
+_id: ObjectId("6ab102c872374bbfbd58c611")
+
+db.service_requests.updateOne({_id: ObjectId('6ab102c872374bbfbd58c60f')},{$set: {status: "ASSIGNED",assigned_to: "Ganavi"}})
+db.service_requests.find()
+ 
+db.service_requests.updateOne({_id: ObjectId("6ab102c872374bbfbd58c610")},{$set: {status: "IN_PROGRESS"}})
+    
+db.service_requests.updateOne({_id: ObjectId('6ab102c872374bbfbd58c611')},{$set: {status: "RESOLVED", resolved_by: "Ganavi"}})
+   
+db.service_requests.updateOne({_id: ObjectId('6ab102c872374bbfbd58c612')},{$set: {status: "CLOSED"}})
+db.service_requests.find()
+
+db.service_requests.insertOne({name: "sanju",password: "sanju123",role: "support_engineer"})
+
+db.service_requests.deleteOne({name: "Ganavi",password: "Ganavi123",role: "support_engineer"})
+$ show collections   
+  
