@@ -1,0 +1,37 @@
+DAY1
+Fast API Based Application Working
+
+Fronted -> Backend -> Database
+(React)   (FastAPI)  (Mongo DB)
+JS        PYTHON      BSON doc =JSON +LOB
+
+UI Logic Business Logic -persistent store(to store permanently)
+
+There are two databases sources:-
+ 1.SQL :-(RDBMS- RELATION DATA BASES)
+      *database -table row
+      *nested data will be in many table using the relationship for sigh key
+
+ 2.NO SQL - no only SQL -Mongo DB
+      *database - collection of documents
+      *document-hiararchial is nested.
+
+Installed Mongo DB Server = CE
+     - setup Mongo shell to work with mongo server
+
+What is Mongo shell?
+   client tool is CLI to 
+
+to list databases:
+1 show dbs
+2 show databases
+
+To create databases if does not exist
+To select databases if exist
+# use student_app_db
+
+TO ADD THE 'STUDENT'document to students collection:
+$ db.student.insertOne({name:"kamala",age:19,course:"CSE",year:4})
+
+To List Student document:
+$use db.students.find()
