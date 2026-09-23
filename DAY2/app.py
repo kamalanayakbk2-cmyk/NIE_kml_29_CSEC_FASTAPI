@@ -12,7 +12,7 @@ db = {
     2: {"id" : 2,"title" : "internet is not working","description" : "wifi problem",
        "category" : "Hardware","status" :"NEW"}
     }
-#Schemas
+#Schema
 class TicketCreate(BaseModel):
     title : str
     description : str

@@ -1,0 +1,22 @@
+1.what is fastAPI?
+   *it has major framework they are starlette,pydantic
+   *pydantic - it is library is use to data validation and serialization
+   *-ASGI based python web development framework(Asynchronous Server Gateway Interface)
+2.how to use fastapi:-
+uvicorn mai:app --reload
+
+3.How to test the FASTAPI:-
+    using swagger
+    thunder client postman
+
+4.what did we learn so far?
+   mongo db basic operation crud(create,read,update,delete)
+   basic fastapi app
+   crud operation on in -mem dict db 
+
+Agenda:
+  *crud operation on mongo
+  * secured app
+
+  -backend app(server)business logics
+  - fronted app(client) UI logics
