@@ -1,0 +1,175 @@
+1. if previous fastapi server runs ,stop it .
+ either 
+    or
+    terminal standalone
+2. copy the main.py from day03noon to
+  day03Noon dir -> main.py
+
+  run the main.py in standalone terminal
+  uvicorn main:app --reload
+  open the browser:
+  http://127.0.0.1:0000/docs
+
+  "secured app " ->protected TicketsAPIS
+    Create the below users:
+      1. admin,123,4
+    2. employee,123,1
+    3.engineer,123,2
+    4. lead,123,3
+    in swagger -> Authorize ->username |password
+      admin ,123
+
+then try the tickets TicketsAPIS 
+   create ,run , update,delete
+switch the  login to employee
+  raise tickets
+switch the login to lead
+  assign tickets
+switch the login to engineer
+  resolve tickets
+
+**understand the complete flow:
+
+  Command Prompt
+     ↓
+MongoDB
+     ↓
+FastAPI
+     ↓
+JWT Login
+     ↓
+Role Authorization
+     ↓
+CRUD Tickets
+
+*********____________**********
+FRONTED DEVELOPMENT
+*frontend(react js)
+*what is HTML? HYPER TEXT MARKUP LANGUAGE
+language- to define content of web doc/page
+p, H1 .. H6,TABLE,UL,QL,DL etc
+
+ mozilla docs
+what is css?
+to make the html doc content as look and feel
+
+styles categories:-
+front,text,border,padding,margin,color,background etc
+
+to validate the html forms -> js
+SPA-> single page application -Framework
+      to make web page as app
+      examples: React js,Anguitar,Vue js
+
+React js ->java script 
+ -JSX- JS+XML(HTML)
+Node JS based fronted framework
+Node JS based UI framework
+
+vite template/starter
+npm create vite@latest  my-vue-app -- --template vue
+npm create vite@latest  calc-app -- --template react
+
+steps:- to install and open the directory (vs code):-
+
+PS C:\Users\jjksa> npm create vite@latest  calc-app -- --template react
+npm notice run npx
+npm notice run create-vite calc-app --template react
+│
+◇  Target directory "calc-app" is not empty. Please choose how to proceed:
+│  Remove existing files and continue
+│
+◇  Which linter to use?
+│  ESLint
+│
+◇  Install with npm and start now?
+│  No
+│
+◇  Scaffolding project in C:\Users\jjksa\calc-app...
+│
+└  Done. Now run:
+
+  cd calc-app
+  npm install
+  npm run dev
+
+PS C:\Users\jjksa> cd calc-app
+PS C:\Users\jjksa\calc-app> code .
+
+
+steps:-
+the react app is running in the browser
+
+How react will works wirth the single page
+1.React will take the snapchat of the single page is Dom -page
+-it is virtual Dom
+-react holds the virtual DOM
+-react will update vDOM and algorith different  that checks the vDOM and DOM  if any changes will be updated to DOM
+
+ 
+ when we give the url of the react app server:
+ 1.the index.html will be loaded first
+ 2.main.jss will be loaded for index.html
+  - entry point for react app
+
+
+  
+function App() {
+  return (
+    <div>
+      <h1>Calculator</h1>
+
+      <h2>Square Calc</h2>
+      <p>Square Calculate will calculate the square of the given number.</p>
+
+      <ul>
+        <li>Takes a number</li>
+        <li>Prints the square of the number</li>
+      </ul>
+
+      <h2>Sum Calc</h2>
+      <p>Sum Calc calculates the sum of the given two numbers.</p>
+
+      <ol>
+        <li>Takes two numbers</li>
+        <li>Prints the sum of the numbers</li>
+      </ol>
+
+      <img src="favicon.svg" />
+      <img src="airplane.jpg" />
+    </div>
+  );
+}
+
+export default App;
+
+
+export default function Square(){
+    return (
+        <>
+           Square Calculatore will be here  
+        </>
+    )
+}
+
+
+
+import Square from "./Square";
+
+function App() {
+  return (
+    <>
+      <p>My Application</p>
+
+      <hr />
+
+      <Square />
+
+      <hr />
+    </>
+  );
+}
+
+export default App;
+
+after this go to command prompt and copy the URL AND PASTE IT IN BROWSER
