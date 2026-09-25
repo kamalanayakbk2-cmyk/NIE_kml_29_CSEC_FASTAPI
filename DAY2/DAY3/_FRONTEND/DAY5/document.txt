@@ -1,0 +1,12 @@
+setting up the working direction:
+
+c:\nie_work
+  --apps\tickets_app\
+    -- server\
+    main.py
+    --client\
+    it is the vite project dir
+demo of the app(full stack)
+
+run server uvicorn main:app --reload
+run client: npm run dev
